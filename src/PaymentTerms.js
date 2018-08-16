@@ -8,9 +8,19 @@ class PaymentTerms extends React.Component {
     this.state = {range: 3, downPayment: 300};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDownPayment = this.handleDownPayment.bind(this);
   }
   handleChange(event) {
     this.setState({range: event.target.value});
+  }
+  handleDownPayment(event) {
+    let paymentAmount = event.target.value;
+    if (paymentAmount < 300) {
+      this.setState({error: 'Down payment must be at $300.00'});
+    } else {
+      this.setState({error: ''});
+    }
+    this.setState({downPayment: paymentAmount});
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -39,10 +49,9 @@ class PaymentTerms extends React.Component {
               type="number"
               id="downPayment"
               value={this.state.downPayment}
-              onChange={event =>
-                this.setState({downPayment: event.target.value})
-              }
+              onChange={this.handleDownPayment}
             />
+            <span>{this.state.error}</span>
             <div>
               $
               {(
