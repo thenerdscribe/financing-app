@@ -1,0 +1,35 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 4rem;
+  font-family: sans-serif;
+}
+
+.pop-up {
+  top: 1vh;
+  left: 2vw;
+  height: 98vh;
+  width: 96vw;
+  position: absolute;
+  outline: 9999999px rgba(0, 0, 0, 0.85) solid;
+  background: #fff;
+  padding: 2rem;
+}
+
+.form-input {
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 40rem) {
+  .pop-up {
+    top: 10vh;
+    height: 80vh;
+    left: 20vw;
+    width: 60vw;
+  }
+}
