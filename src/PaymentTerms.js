@@ -16,7 +16,7 @@ class PaymentTerms extends React.Component {
   handleDownPayment(event) {
     let paymentAmount = event.target.value;
     if (paymentAmount < 300) {
-      this.setState({error: 'Down payment must be at $300.00'});
+      this.setState({error: 'Down payment must be at least $300.00'});
     } else {
       this.setState({error: ''});
     }
