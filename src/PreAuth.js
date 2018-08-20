@@ -16,7 +16,17 @@ class PreAuth extends React.Component {
       return (
         <div className="pop-up approval-notice">
           <h2>Apply now to get your mattress for only $300 down</h2>
-          <p>This would be text about the offer details and how it works</p>
+          <p>Sample offer below</p>
+          <ul>
+            <li>$300 down on approved credit</li>
+            <li>Flexible payment terms (3, 6, or 9 months)</li>
+            <li>Auto-payment plus make a payment whenever you need</li>
+          </ul>
+          <p>
+            While this screen isn't necessary, it will help customers understand
+            our terms and give them more information before starting the
+            application process.
+          </p>
           <Button
             onClick={() => this.setState({response: true})}
             message="Get approved!"

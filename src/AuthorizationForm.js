@@ -1,7 +1,6 @@
 import React from 'react';
 import PaymentTerms from './PaymentTerms.js';
 import {PriceContext} from './App.js';
-import _ from 'lodash';
 import './App.css';
 
 class AuthorizationForm extends React.Component {
@@ -36,9 +35,10 @@ class AuthorizationForm extends React.Component {
     this.setState({waiting: true});
 
     setTimeout(() => {
+      const approval = Math.random() <= 0.8 ? true : false;
       this.setState({
         waiting: false,
-        approved: _.sample([true, false]),
+        approved: approval,
       });
     }, 2000);
   }
@@ -60,6 +60,7 @@ class AuthorizationForm extends React.Component {
             <div className="form-input">
               <label htmlFor="email">Email Address</label>
               <input
+                required
                 type="email"
                 name="email"
                 id="email"
@@ -70,6 +71,7 @@ class AuthorizationForm extends React.Component {
             <div className="form-input">
               <label htmlFor="fname">First Name</label>
               <input
+                required
                 type="text"
                 name="fname"
                 id="fname"
@@ -80,6 +82,7 @@ class AuthorizationForm extends React.Component {
             <div className="form-input">
               <label htmlFor="lname">Last Name</label>
               <input
+                required
                 type="text"
                 name="lname"
                 id="lname"
@@ -88,8 +91,11 @@ class AuthorizationForm extends React.Component {
               />
             </div>
             <div className="form-input">
-              <label htmlFor="ssn">Social Security Number</label>
+              <label htmlFor="ssn">
+                Last Four of Your Social Security Number
+              </label>
               <input
+                required
                 type="number"
                 name="ssn"
                 id="ssn"
@@ -100,6 +106,7 @@ class AuthorizationForm extends React.Component {
             <div className="form-input">
               <label htmlFor="dob">Date of Birth</label>
               <input
+                required
                 type="date"
                 name="dob"
                 id="dob"
@@ -110,6 +117,7 @@ class AuthorizationForm extends React.Component {
             <div className="form-input">
               <label htmlFor="readAgreement">Read our agreement</label>
               <input
+                required
                 type="checkbox"
                 name="readAgreement"
                 id="readAgreement"
@@ -118,7 +126,9 @@ class AuthorizationForm extends React.Component {
               />
             </div>
             <button type="submit">Submit Application</button>{' '}
-            {this.state.waiting ? 'Processing' : ''}
+            {this.state.waiting
+              ? 'Processing (This would be us sending the info to a pre-auth service.)'
+              : ''}
           </form>
         </div>
       );

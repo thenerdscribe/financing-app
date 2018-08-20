@@ -10,6 +10,11 @@ body {
   font-family: sans-serif;
 }
 
+.App {
+  max-width: 85%;
+  margin: 5rem auto;
+}
+
 .pop-up {
   top: 1vh;
   left: 2vw;
@@ -32,4 +37,26 @@ body {
     left: 20vw;
     width: 60vw;
   }
+}
+
+.active {
+  background: #ccc;
+}
+
+.products-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.product {
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid #aaa;
 }

@@ -31,26 +31,34 @@ class PaymentTerms extends React.Component {
     } else if (this.props.approved) {
       return (
         <div className="pop-up payment-terms approved">
-          <h2>Congrats</h2>
-          <p>Select your payment terms</p>
+          <h2>Approval Screen</h2>
+          <p>
+            Customer would then set their payment terms. This would be dynamic
+            based on their risk (i.e. higher down payment if they're a higher
+            risk).
+          </p>
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor="paymentRates">How many months?</label>
-            <input
-              type="range"
-              min="3"
-              max="9"
-              step="3"
-              value={this.state.range}
-              onChange={this.handleChange}
-            />
-            <div>{this.state.range} Months</div>
-            <label htmlFor="downPayment">Down payment</label>
-            <input
-              type="number"
-              id="downPayment"
-              value={this.state.downPayment}
-              onChange={this.handleDownPayment}
-            />
+            <div className="form-input">
+              <label htmlFor="paymentRates">How many months?</label>
+              <input
+                type="range"
+                min="3"
+                max="9"
+                step="3"
+                value={this.state.range}
+                onChange={this.handleChange}
+              />
+              <div>{this.state.range} Months</div>
+            </div>
+            <div className="form-input">
+              <label htmlFor="downPayment">Down payment</label>
+              <input
+                type="number"
+                id="downPayment"
+                value={this.state.downPayment}
+                onChange={this.handleDownPayment}
+              />
+            </div>
             <span>{this.state.error}</span>
             <div>
               $
