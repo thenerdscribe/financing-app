@@ -43,7 +43,7 @@ class PaymentTerms extends React.Component {
               <input
                 type="range"
                 min="3"
-                max="9"
+                max="12"
                 step="3"
                 value={this.state.range}
                 onChange={this.handleChange}

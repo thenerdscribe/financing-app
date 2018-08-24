@@ -1,6 +1,6 @@
 import React from 'react';
 import PaymentTerms from './PaymentTerms.js';
-import {PriceContext} from './App.js';
+import { PriceContext } from './App.js';
 import './App.css';
 
 class AuthorizationForm extends React.Component {
@@ -13,7 +13,7 @@ class AuthorizationForm extends React.Component {
       readAgreement: false,
       dob: '',
       email: '',
-      approved: null,
+      approved: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,20 +25,20 @@ class AuthorizationForm extends React.Component {
     const name = target.name;
 
     this.setState({
-      [name]: value,
+      [name]: value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({waiting: true});
+    this.setState({ waiting: true });
 
     setTimeout(() => {
       const approval = Math.random() <= 0.8 ? true : false;
       this.setState({
         waiting: false,
-        approved: approval,
+        approved: approval
       });
     }, 2000);
   }
